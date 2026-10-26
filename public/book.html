@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Medical Coach | MediRail Emergency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <section class="booking-section" id="bookingWizard">
+    <div class="container">
+      <div class="booking-wizard-card" id="bookingWizardCard">
+        <div class="wizard-header">
+          <div class="wizard-title-strip">
+            <div class="wizard-title">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              Reserve Medical Coach Berth (Coach M-1)
+            </div>
+            <div>
+              <button type="button" class="quick-demo-btn" id="btnDemoAutofill">
+                ⚡ Demo Auto-Fill
+              </button>
+            </div>
+          </div>
+
+          <div class="stepper-progress-container">
+            <div class="stepper-line">
+              <div class="stepper-line-fill" id="stepperFill"></div>
+            </div>
+            <div class="step-indicator active" data-step="1">
+              <div class="step-circle">1</div>
+              <span class="step-label">Journey & Patient</span>
+            </div>
+            <div class="step-indicator" data-step="2">
+              <div class="step-circle">2</div>
+              <span class="step-label">Medical Support</span>
+            </div>
+            <div class="step-indicator" data-step="3">
+              <div class="step-circle">3</div>
+              <span class="step-label">Coach & Berth</span>
+            </div>
+            <div class="step-indicator" data-step="4">
+              <div class="step-circle">4</div>
+              <span class="step-label">Summary & Review</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="wizard-body">
+          <!-- STEP 1 -->
+          <div class="step-panel active" id="stepPanel1">
+            <div class="step-heading-wrap">
+              <div>
+                <h3 class="step-main-title">Step 1: Patient & Journey Details</h3>
+                <p class="step-subtitle">Configure route, travel date, and patient information for medical clearance.</p>
+              </div>
+              <span class="spec-badge" style="background:#e0f2fe; color:#0369a1;">Tier-1 Emergency Rail Network</span>
+            </div>
+
+            <div class="form-grid-3">
+              <div class="form-group">
+                <label class="form-label" for="fromCity">From City (Departure)</label>
+                <div class="select-wrap">
+                  <select id="fromCity" class="form-control"></select>
+                </div>
+                <span class="error-text">Select origin city</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="toCity">To City (Tier-1 Destination)</label>
+                <div class="select-wrap">
+                  <select id="toCity" class="form-control"></select>
+                </div>
+                <span class="error-text">Destination must differ from departure</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="journeyDate">Journey Date</label>
+                <input type="date" id="journeyDate" class="form-control">
+                <span class="error-text">Please select journey date</span>
+              </div>
+            </div>
+
+            <div class="train-selection-container">
+              <label class="form-label">Available Express Trains with Medical Coach M-1</label>
+              <div class="train-cards-grid" id="trainCardsContainer"></div>
+            </div>
+
+            <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-light);">
+              <label class="form-label" style="font-size:0.95rem; margin-bottom:1rem; color:var(--primary-navy);">
+                Patient Demographics & Attendant
+              </label>
+
+              <div class="form-grid-3">
+                <div class="form-group">
+                  <label class="form-label" for="patientName">Patient Full Name *</label>
+                  <input type="text" id="patientName" class="form-control" placeholder="e.g. Rajesh Sharma">
+                  <span class="error-text">Patient name is required</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="patientAge">Patient Age *</label>
+                  <input type="number" id="patientAge" class="form-control" placeholder="Age in years (e.g. 58)" min="1" max="120">
+                  <span class="error-text">Valid age required</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="patientGender">Patient Gender</label>
+                  <div class="select-wrap">
+                    <select id="patientGender" class="form-control">
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-grid-3">
+                <div class="form-group">
+                  <label class="form-label" for="attendantName">Accompanying Attendant Name *</label>
+                  <input type="text" id="attendantName" class="form-control" placeholder="e.g. Sunita Sharma (Family)">
+                  <span class="error-text">Attendant name is required</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="contactPhone">Emergency Contact Mobile *</label>
+                  <input type="tel" id="contactPhone" class="form-control" placeholder="+91 98201 44520">
+                  <span class="error-text">Valid contact number required</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="doctorName">Referring Doctor / Hospital (Optional)</label>
+                  <input type="text" id="doctorName" class="form-control" placeholder="e.g. Dr. Kulkarni / Ruby Hall Clinic">
+                </div>
+              </div>
+            </div>
+
+            <div class="wizard-footer">
+              <span style="font-size:0.85rem; color:var(--text-muted);">Step 1 of 4 • Journey & Patient Configuration</span>
+              <button type="button" id="btnStep1Next" class="btn-action-next">
+                Proceed to Medical Requirements
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="step-panel" id="stepPanel2">
+            <div class="step-heading-wrap">
+              <div>
+                <h3 class="step-main-title">Step 2: Medical Support & Requirements</h3>
+                <p class="step-subtitle">Select the required clinical apparatus, oxygen lines, and escort staff needed on-board.</p>
+              </div>
+              <span class="spec-badge" style="background:#ccfbf1; color:#0f766e;">Clinical Setup Matrix</span>
+            </div>
+
+            <div class="medical-services-grid" id="medicalServicesGrid"></div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="conditionCategory">Primary Clinical Category</label>
+                <div class="select-wrap">
+                  <select id="conditionCategory" class="form-control">
+                    <option value="cardiac">Cardiac / Post-Angioplasty / Heart Condition</option>
+                    <option value="respiratory">Respiratory / Low SpO2 / COPD</option>
+                    <option value="neuro">Neurological / Post-Stroke Rehabilitation</option>
+                    <option value="orthopedic">Orthopedic / Spinal Trauma / Immobilized</option>
+                    <option value="surgical">Post-Operative Recovery Transfer</option>
+                    <option value="oncology">Oncology / Organ Transplant Evaluation</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="conditionDetails">Patient Medical Condition / Special Instructions</label>
+                <textarea id="conditionDetails" class="form-control" rows="3" placeholder="Describe the current clinical state, required medication frequency, or specific handling instructions..."></textarea>
+              </div>
+            </div>
+
+            <div class="emergency-disclaimer-box">
+              <div class="disclaimer-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y1="13"></line><line x1="12" y1="17" x2="12.01" y1="17"></line></svg>
+                CRITICAL EMERGENCY MEDICAL DISCLAIMER
+              </div>
+              <p class="disclaimer-text">
+                MediRail Emergency Coach M-1 is strictly intended for sub-acute, medically stabilized inter-city transfers between recognized healthcare institutions. It is not an acute mobile resuscitation ER. In circumstances of uncontrolled active hemorrhage, active cardiac arrest, or unstable trauma requiring immediate life-saving surgery, DO NOT book rail transit. Contact your local emergency ambulance immediately via 108 or 112.
+              </p>
+              <label class="disclaimer-agree-wrap">
+                <input type="checkbox" id="disclaimerCheck" checked>
+                <span>I confirm that the patient is certified clinically stabilized for inter-city rail transit by their attending physician.</span>
+              </label>
+            </div>
+
+            <div class="wizard-footer">
+              <button type="button" id="btnStep2Back" class="btn-secondary">⬅ Back</button>
+              <button type="button" id="btnStep2Next" class="btn-action-next">
+                Proceed to Coach & Berth Selection
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 3 -->
+          <div class="step-panel" id="stepPanel3">
+            <div class="step-heading-wrap">
+              <div>
+                <h3 class="step-main-title">Step 3: Coach & Berth Selection (Coach M-1)</h3>
+                <p class="step-subtitle">Click on an available patient berth inside the dedicated medical coach.</p>
+              </div>
+              <span class="spec-badge" style="background:#e0e7ff; color:#3730a3;">Interactive Rail Blueprint</span>
+            </div>
+
+            <div class="coach-visual-container" id="coachBlueprintSection">
+              <div class="coach-header-info">
+                <div class="coach-title">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="16" rx="2"></rect><path d="M12 7v8M8 11h8"></path></svg>
+                  COACH M-1: CRITICAL CARE LIFE-LINE UNIT
+                </div>
+                <div class="coach-spec-tags">
+                  <span class="coach-spec-tag">Length: 24m LHB Coach</span>
+                  <span class="coach-spec-tag">Continuous 230V UPS</span>
+                  <span class="coach-spec-tag">HEPA Filter Clean Air</span>
+                  <span class="coach-spec-tag">Wide Hydraulic Ramp Access</span>
+                </div>
+              </div>
+
+              <div class="coach-blueprint-scroll">
+                <div class="coach-chassis">
+                  <div class="coach-door-ramp">Stretcher Access Ramp (Platform 4 Gate 1)</div>
+                  <div class="coach-zones-grid">
+                    <div class="coach-zone">
+                      <div class="zone-header-label">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        Zone A: Medical Station
+                      </div>
+                      <div class="station-staff-card">
+                        <div class="staff-role">🩺 Doctor Cabin & Tele-ICU</div>
+                        <div class="staff-desc">Duty Critical Care Physician</div>
+                      </div>
+                      <div class="station-staff-card">
+                        <div class="staff-role">🩹 Nurse Monitoring Post</div>
+                        <div class="staff-desc">Central Telemetry Station</div>
+                      </div>
+                      <div class="station-staff-card" style="background:rgba(225,29,72,0.15); border-color:rgba(225,29,72,0.4);">
+                        <div class="staff-role" style="color:#fda4af;">🚨 Defibrillator & Crash Cart</div>
+                        <div class="staff-desc">Emergency Resuscitation Bay</div>
+                      </div>
+                    </div>
+
+                    <div class="coach-zone">
+                      <div class="zone-header-label">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 13h18M3 17h18M5 13V9a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4M6 17v4M18 17v4"/></svg>
+                        Zones B & C: Patient Beds & Stretchers
+                      </div>
+                      <div class="berths-grid" id="berthsGrid"></div>
+                    </div>
+
+                    <div class="coach-zone">
+                      <div class="zone-header-label">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/></svg>
+                        Attendant Bay
+                      </div>
+                      <div class="attendant-bay-list" id="attendantSeatsList"></div>
+                    </div>
+                  </div>
+
+                  <div class="coach-legend">
+                    <div class="legend-item">
+                      <span class="legend-dot available"></span>
+                      <span>Available Berth</span>
+                    </div>
+                    <div class="legend-item">
+                      <span class="legend-dot selected"></span>
+                      <span>Selected Berth</span>
+                    </div>
+                    <div class="legend-item">
+                      <span class="legend-dot occupied"></span>
+                      <span>Occupied (Reserved)</span>
+                    </div>
+                    <div class="legend-item">
+                      <span class="legend-dot medical"></span>
+                      <span>Medical Crew Bay</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="selected-berth-callout">
+                <div class="selected-berth-left">
+                  <div class="berth-badge-icon" id="selectedBerthBadge">M-01</div>
+                  <div>
+                    <div class="berth-detail-title" id="selectedBerthTitle">Berth M-01 • ICU Critical Berth</div>
+                    <div class="berth-detail-sub" id="selectedBerthDesc">Equipped with Dual Piped O2, Ventilator Port, and 230V UPS power.</div>
+                  </div>
+                </div>
+                <div>
+                  <span class="spec-badge" style="background:#10b981; color:#ffffff; font-size:0.8rem; padding:0.4rem 0.8rem;">
+                    ✓ Available for Reservation
+                  </span>
+                </div>
+              </div>
+
+              <div class="wizard-footer">
+                <button type="button" id="btnStep3Back" class="btn-secondary">⬅ Back</button>
+                <button type="button" id="btnStep3Next" class="btn-action-next">
+                  Review Booking & Summary
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4 -->
+          <div class="step-panel" id="stepPanel4">
+            <div class="step-heading-wrap">
+              <div>
+                <h3 class="step-main-title">Step 4: Booking Summary & Final Review</h3>
+                <p class="step-subtitle">Verify patient transfer details and subsidized fare breakdown before confirming.</p>
+              </div>
+              <span class="spec-badge" style="background:#fef3c7; color:#92400e;">Pre-Confirmation Verification</span>
+            </div>
+
+            <div class="summary-container-grid">
+              <div class="summary-card-panel">
+                <div class="summary-panel-title">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 8 9"></polyline></svg>
+                  Patient & Transit Record
+                </div>
+
+                <table class="summary-data-table">
+                  <tr>
+                    <td class="label-col">Journey Route:</td>
+                    <td class="value-col" id="sumRoute">Pune (PUNE) ➔ Mumbai (CSMT)</td>
+                  </tr>
+                  <tr>
+                    <td class="label-col">Journey Date:</td>
+                    <td class="value-col" id="sumDate">Tomorrow</td>
+                  </tr>
+                  <tr>
+                    <td class="label-col">Assigned Train:</td>
+                    <td class="value-col" id="sumTrain">22222 - Vande Bharat Medi-Express</td>
+                  </tr>
+                  <tr>
+                    <td class="label-col">Departure Time:</td>
+                    <td class="value-col" id="sumDeparture">06:15 AM</td>
+                  </tr>
+                  <tr>
+                    <td class="label-col">Patient:</td>
+                    <td class="value-col" id="sumPatient">Rajesh Sharma, 58 yrs (Male)</td>
+                  </tr>
+                  <tr>
+                    <td class="label-col">Attendant:</td>
+                    <td class="value-col" id="sumAttendant">Sunita Sharma (+91 98201 44520)</td>
+                  </tr>
+                  <tr>
+                    <td class="label-col">Clinical Case:</td>
+                    <td class="value-col" id="sumCondition">Cardiac Transfer</td>
+                  </tr>
+                  <tr>
+                    <td class="label-col">Assigned Berth:</td>
+                    <td class="value-col" id="sumBerth" style="color:var(--primary-blue);">Berth M-01 (ICU Bed) + ATT-01</td>
+                  </tr>
+                </table>
+
+                <div style="margin-top: 1.25rem;">
+                  <div style="font-size:0.8rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:0.5rem;">
+                    Included Medical Equipment & Escort
+                  </div>
+                  <div id="sumFacilities"></div>
+                </div>
+              </div>
+
+              <div class="fare-breakdown-card">
+                <div class="summary-panel-title">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                  Subsidized Fare Breakdown
+                </div>
+
+                <div class="fare-list" id="fareList"></div>
+
+                <div class="fare-divider"></div>
+
+                <div class="fare-total-row">
+                  <span>Net Estimated Fare:</span>
+                  <span class="total-amount-display" id="fareTotalAmount">₹10,500</span>
+                </div>
+
+                <div class="payment-simulation-box">
+                  <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--text-muted); letter-spacing:0.04em;">
+                    Payment & Subsidy Method (Mock Demo)
+                  </span>
+                  <div class="payment-options-grid">
+                    <div class="pay-radio-card active" data-pay="pmjay">
+                      <input type="radio" name="payMethod" checked>
+                      <span>PM-JAY Ayushman Bharat</span>
+                    </div>
+                    <div class="pay-radio-card" data-pay="cghs">
+                      <input type="radio" name="payMethod">
+                      <span>CGHS / ECHS Coverage</span>
+                    </div>
+                    <div class="pay-radio-card" data-pay="insurance">
+                      <input type="radio" name="payMethod">
+                      <span>Corporate TPA Insurance</span>
+                    </div>
+                    <div class="pay-radio-card" data-pay="direct">
+                      <input type="radio" name="payMethod">
+                      <span>Direct UPI / Card (Demo)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="wizard-footer">
+              <button type="button" id="btnStep4Back" class="btn-secondary">⬅ Edit Details</button>
+              <button type="button" id="btnConfirmBooking" class="btn-confirm-booking">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                Confirm Medical Coach Booking
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/data.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/booking.js"></script>
+</body>
+</html>

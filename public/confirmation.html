@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Confirmed | MediRail Emergency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <section class="confirmation-section" id="bookingConfirmationSection">
+    <div class="container">
+      <div class="confirmation-banner">
+        <div class="success-check-icon">✓</div>
+        <h2 class="confirmation-title">Medical Coach Booking Confirmed!</h2>
+        <p class="confirmation-sub">Coach M-1 priority ambulance clearance has been dispatched to railway dispatch control.</p>
+      </div>
+
+      <!-- Official E-Ticket Card -->
+      <div class="eticket-card" id="eTicketCard">
+        <div class="eticket-header">
+          <div class="ticket-gov-brand">
+            <div class="logo-icon-wrap" style="background:#ffffff; color:var(--primary-navy);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="4" y="3" width="16" height="16" rx="2"></rect><path d="M12 7v8M8 11h8"></path></svg>
+            </div>
+            <div>
+              <div style="font-weight:800; font-size:1.15rem; letter-spacing:-0.01em;">INDIAN RAILWAYS & MEDIRAIL</div>
+              <div style="font-size:0.75rem; color:#93c5fd; letter-spacing:0.04em;">EMERGENCY PATIENT TRANSIT PASS • COACH M-1</div>
+            </div>
+          </div>
+
+          <div class="ticket-pnr-box">
+            <div class="ticket-pnr-label">PNR / BOOKING ID</div>
+            <div class="ticket-pnr-val" id="ticketPnr">---</div>
+            <div style="font-size:0.7rem; color:#cbd5e1;" id="ticketBookingId">---</div>
+          </div>
+        </div>
+
+        <div class="eticket-route-strip">
+          <div class="ticket-city">
+            <span class="ticket-city-code" id="ticketFromCityCode">---</span>
+            <span class="ticket-city-name" id="ticketFromCityName">---</span>
+          </div>
+
+          <div class="ticket-train-arrow">
+            <span style="font-size:0.75rem; font-weight:800; color:var(--teal-accent); letter-spacing:0.05em;">GREEN CORRIDOR PRIORITY</span>
+            <svg width="80" height="14" viewBox="0 0 80 14" fill="none">
+              <line x1="0" y1="7" x2="70" y2="7" stroke="#0d9488" stroke-width="2" stroke-dasharray="4 2"/>
+              <polygon points="70,2 80,7 70,12" fill="#0d9488"/>
+            </svg>
+            <span style="font-size:0.7rem; color:var(--text-muted);" id="ticketTrainInfo">---</span>
+          </div>
+
+          <div class="ticket-city" style="text-align:right;">
+            <span class="ticket-city-code" id="ticketToCityCode">---</span>
+            <span class="ticket-city-name" id="ticketToCityName">---</span>
+          </div>
+        </div>
+
+        <div class="ticket-body-grid">
+          <div class="ticket-details-col">
+            <div class="ticket-detail-item">
+              <div class="ticket-item-label">Patient Demographics</div>
+              <div class="ticket-item-val" id="ticketPatientName">---</div>
+              <div style="font-size:0.85rem; color:var(--text-body);" id="ticketPatientDemographics">---</div>
+            </div>
+
+            <div class="ticket-detail-item">
+              <div class="ticket-item-label">Assigned Coach & Berth</div>
+              <div class="ticket-coach-berth-badge">
+                <span class="t-badge" style="background:#0a2540; color:#fff;" id="ticketCoachNum">Coach M-1</span>
+                <span class="t-badge" id="ticketBerthNum">---</span>
+                <span class="t-badge" style="background:#f1f5f9; color:var(--text-dark);" id="ticketAttendantSeat">---</span>
+              </div>
+            </div>
+
+            <div class="ticket-detail-item">
+              <div class="ticket-item-label">Accompanying Attendant & Phone</div>
+              <div class="ticket-item-val" id="ticketAttendantInfo">---</div>
+            </div>
+
+            <div class="ticket-detail-item">
+              <div class="ticket-item-label">Duty Medical Officer (Escort)</div>
+              <div class="ticket-item-val" id="ticketDoctorOnBoard">---</div>
+            </div>
+
+            <div class="ticket-detail-item">
+              <div class="ticket-item-label">Equipped Life-Support Facilities</div>
+              <div class="ticket-facilities-tags" id="ticketFacilitiesList"></div>
+            </div>
+          </div>
+
+          <div class="ticket-qr-section">
+            <svg class="qr-code-img" viewBox="0 0 100 100" fill="#0f172a">
+              <rect x="5" y="5" width="25" height="25" fill="#0f172a"/><rect x="10" y="10" width="15" height="15" fill="#ffffff"/><rect x="13" y="13" width="9" height="9" fill="#0f172a"/>
+              <rect x="70" y="5" width="25" height="25" fill="#0f172a"/><rect x="75" y="10" width="15" height="15" fill="#ffffff"/><rect x="78" y="13" width="9" height="9" fill="#0f172a"/>
+              <rect x="5" y="70" width="25" height="25" fill="#0f172a"/><rect x="10" y="75" width="15" height="15" fill="#ffffff"/><rect x="13" y="78" width="9" height="9" fill="#0f172a"/>
+              <rect x="35" y="10" width="8" height="8"/><rect x="48" y="15" width="12" height="8"/><rect x="35" y="25" width="14" height="6"/><rect x="10" y="38" width="15" height="8"/><rect x="35" y="38" width="10" height="10"/><rect x="55" y="38" width="12" height="6"/><rect x="75" y="38" width="15" height="10"/><rect x="40" y="55" width="18" height="10"/><rect x="65" y="55" width="10" height="10"/><rect x="35" y="72" width="12" height="15"/><rect x="55" y="75" width="15" height="12"/><rect x="75" y="75" width="18" height="15"/>
+            </svg>
+            <span style="font-size:0.75rem; font-weight:800; color:var(--primary-navy);">SCAN AT PLATFORM GATE 1</span>
+            <span style="font-size:0.7rem; color:var(--text-muted); margin-top:0.2rem;">Direct Ambulance Stretcher Ramp Access</span>
+            <div class="barcode-strip"></div>
+          </div>
+        </div>
+
+        <div class="ticket-footer-notice">
+          <div>
+            <strong>Departure Platform:</strong> Platform 4 (Ambulance Ramp Gate 1) • Please report 25 mins before departure.
+          </div>
+          <div>
+            <strong>Destination Ambulance Link:</strong> Arranged at arrival station (108 Emergency Tie-up).
+          </div>
+        </div>
+      </div>
+
+      <div class="ticket-actions-row">
+        <button type="button" class="btn-print" id="btnPrintTicket">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          Download / Print Medical Ticket
+        </button>
+        <button type="button" class="btn-primary" id="btnNewBooking">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+          Book Another Coach
+        </button>
+        <button type="button" class="btn-outline" id="btnBackHome">
+          Back to Home
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/data.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/confirmation.js"></script>
+</body>
+</html>

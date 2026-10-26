@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & FAQ | MediRail Emergency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">24/7 Support</span>
+        <h2 class="section-title">Emergency Helpdesk & Inquiries</h2>
+        <p class="section-subtitle">Reach out to our round-the-clock railway medical coordination desk or submit a specialized transit inquiry.</p>
+      </div>
+
+      <div class="contact-layout-grid">
+        <div class="helpline-box">
+          <h3 class="helpline-title">🚨 Emergency Helpline Contacts</h3>
+          <div class="helpline-card">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <div>
+              <div class="helpline-num">1800-419-RAIL (Toll-Free)</div>
+              <div class="helpline-label">Central Railway Emergency Medical Dispatch</div>
+            </div>
+          </div>
+          <div class="helpline-card">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+            <div>
+              <div class="helpline-num">+91 22 2262 0123</div>
+              <div class="helpline-label">Duty Medical Officer Control Desk (Mumbai HQ)</div>
+            </div>
+          </div>
+          <div class="helpline-card">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg>
+            <div>
+              <div class="helpline-num">medirail.emergency@railnet.gov.in</div>
+              <div class="helpline-label">Official Electronic Referral Desk (Demo)</div>
+            </div>
+          </div>
+          <div style="margin-top:1.5rem; font-size:0.85rem; color:#94a3b8; line-height:1.5;">
+            <strong>Headquarters Address:</strong> Central Medical Rail Operations Command, Rail Bhavan, Connaught Place, New Delhi 110001.
+          </div>
+        </div>
+
+        <div class="contact-form-card">
+          <h3 style="font-size:1.35rem; font-weight:800; color:var(--primary-navy); margin-bottom:0.5rem;">
+            Specialized Medical Transit Inquiry
+          </h3>
+          <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1.5rem;">
+            Hospital case managers and patient family members can request custom coach assistance.
+          </p>
+          <form id="contactForm">
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="contactSenderName">Your Full Name *</label>
+                <input type="text" id="contactSenderName" class="form-control" placeholder="Dr. S. Mehta / Family Member" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contactSenderPhone">Phone Number *</label>
+                <input type="tel" id="contactSenderPhone" class="form-control" placeholder="+91 98000 00000" required>
+              </div>
+            </div>
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="contactSenderEmail">Email Address</label>
+                <input type="email" id="contactSenderEmail" class="form-control" placeholder="doctor@hospital.org">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contactInquiryType">Inquiry Nature</label>
+                <div class="select-wrap">
+                  <select id="contactInquiryType" class="form-control">
+                    <option value="general">Hospital Tie-up & Partner Network</option>
+                    <option value="ventilator">Advance ICU Berth Allocation</option>
+                    <option value="ayushman">Ayushman Bharat Billing Assistance</option>
+                    <option value="academic">College Project / Research Demo Query</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom:1.5rem;">
+              <label class="form-label" for="contactMessage">Message / Patient Clinical Notes</label>
+              <textarea id="contactMessage" class="form-control" rows="4" placeholder="Mention transfer route, required equipment, or project questions..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              Submit Emergency Inquiry
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="faq-section">
+        <h3 class="faq-title">Frequently Asked Questions</h3>
+        <div class="faq-list" id="faqAccordionList"></div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/data.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "medirail-emergency-booking",
+  "version": "1.0.0",
+  "description": "**Project Type:** College Prototype / Frontend-Only Demo   **Problem Statement:** *“In a train, add 1 extra medical-equipped coach to transport emergency patients to Tier-1/metro cities.”*",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.7",
+    "express": "^5.3.0",
+    "mongoose": "^9.11.1"
+  }
+}
